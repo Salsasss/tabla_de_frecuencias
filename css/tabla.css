@@ -1,0 +1,117 @@
+.variables-cont {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.variables-cont span {
+    font-weight: bold;
+    margin: 0;
+    margin-right: 2.5rem;
+}
+
+.variables {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.variables p {
+    margin: 0;
+}
+
+.var-t {
+    width: auto;
+}
+
+.var {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+
+/*Tabla*/
+
+.tabla {
+    width: 100%;
+    margin: 0 auto;
+    border-spacing: 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.titulos {
+    background-color: #772ce8;
+}
+
+.fila {
+    background-color: #bf94ff;
+}
+
+.fila.total {
+    background-color: #772ce8;
+}
+
+td,
+th {
+    border-left: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    border-spacing: 0;
+}
+
+th {
+    border-top: 1.5px solid black;
+}
+
+th:last-of-type {
+    border-right: 1.5px solid black;
+}
+
+td:last-of-type {
+    border-right: 1.5px solid black;
+}
+
+.contenedor-checks {
+    display: flex;
+    justify-content: space-between;
+    height: 6rem;
+}
+
+.contenedor-check {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-check.operaciones {
+    margin-right: 4rem;
+}
+
+.contenedor-check .operaciones {
+    color: white;
+}
+
+.opera-sub {
+    background-color: hotpink;
+    padding: 2px;
+}
+
+.check-ver {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
+    margin-right: .5rem;
+}
+
+.contenedor-check label {
+    display: block;
+    width: auto;
+    font-size: 2rem;
+    font-weight: var(--bold);
+    margin-right: 1rem;
+}
+
+.contenedor-check label:hover {
+    cursor: pointer;
+}

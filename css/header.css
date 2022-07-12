@@ -1,0 +1,76 @@
+.header,
+.footer {
+    background-color: #343434;
+    padding: 1rem;
+}
+
+.header-cont {
+    display: flex;
+    align-items: center;
+    width: 120rem;
+    margin: 0 auto;
+}
+
+.logo {
+    align-self: flex-start;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.footer.fixed {
+    position: fixed;
+    bottom: 0;
+}
+
+.copy {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.header a {
+    margin: 0 auto;
+}
+
+.titulo {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.titulo:hover {
+    cursor: pointer;
+}
+
+
+/* Opciones */
+
+.opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 2rem;
+    background-color: #343434;
+}
+
+.opcion {
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+    box-shadow: 1px 1px 20px black;
+}
+
+.opcion:hover {
+    transition: all 0.2s;
+    background-color: #555555;
+}
+
+.selected {
+    background-color: #555555;
+}

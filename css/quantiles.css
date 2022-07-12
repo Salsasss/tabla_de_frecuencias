@@ -1,0 +1,71 @@
+/* Formulario quantil */
+
+.form-quantil {
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 30% 30% 30% 10%;
+}
+
+.form-quantil .parrafo {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+}
+
+
+/* Cada quantil */
+
+.quantil {
+    font-size: 2rem;
+}
+
+.input-quantil {
+    text-align: center;
+    font-size: 3rem;
+    width: 6.5rem;
+}
+
+.form-quantil .buscar {
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+
+/*Resultados */
+
+.form-quantil-down {
+    display: grid;
+    grid-template-columns: 30% 30% 30% 10%;
+    padding: 1.5rem;
+    padding-top: none;
+    border: 1px solid black;
+    border-top: none;
+    background-color: #bf94ff;
+}
+
+.media.quantiles {
+    background-color: #bf94ff;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.media.quantiles.border {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid black;
+}
+
+.cont-datos {
+    margin: 0;
+    font-size: 2rem;
+    justify-content: space-between;
+}
+
+.res-quantil {
+    margin: 0;
+}
+
+.variables-cont span {
+    font-weight: bold;
+    margin: 0;
+    margin-right: 2.5rem;
+}

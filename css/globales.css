@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /*Reset para REMS - 62.5% = 10px de 16px */
+}
+
+body {
+    background-color: #ECEFF1;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor {
+    width: 130rem;
+    margin: 0 auto;
+}
+
+.subtitulo {
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.pantalla-principal {
+    height: 100%;
+}

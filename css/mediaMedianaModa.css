@@ -1,0 +1,21 @@
+.media {
+    margin: 0;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    background-color: #bf94ff;
+    border: 1px solid black;
+}
+
+.variables-cont.media {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.variables-cont.media p {
+    margin: 0;
+}
+
+.contenedor-media-res {
+    padding: 1.5rem;
+    padding-top: 0;
+}

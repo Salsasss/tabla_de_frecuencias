@@ -1,0 +1,80 @@
+.formulario {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.parrafo {
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+.datos {
+    padding: 2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    height: 50rem;
+    font-size: 2.7rem;
+    resize: none;
+}
+
+.datos.clases {
+    height: 20rem;
+}
+
+.boton {
+    background-color: #343434;
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border: none;
+    border-radius: 5rem;
+}
+
+.boton.pequeño {
+    padding: 0.5rem;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.boton.pequeño:hover {
+    color: white;
+    background-color: rgb(39, 160, 55);
+}
+
+.boton:hover {
+    cursor: pointer;
+    background-color: #717171;
+}
+
+
+/*Numero de decimales despues del punto*/
+
+.form-decimales {
+    display: flex;
+}
+
+.form-decimales label {
+    color: white;
+    margin-right: .5rem;
+    font-size: 2rem;
+}
+
+.form-decimales label:hover {
+    cursor: pointer;
+}
+
+.form-decimales select {
+    margin-right: .5rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
