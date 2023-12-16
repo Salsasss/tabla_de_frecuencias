@@ -11,13 +11,13 @@
     </div>
     <div class="contenedor-media-res">
         <h3 class="subtitulo">Desviaci&oacute;n Media (DM)</h3>
-        <p> <?php echo "DM = Σ(F|MC - Media|) / N" ?> </p>
+        <p> <?php echo "DM = Σ(f|X - X̅|) / N" ?> </p>
         <p> <?php echo "DM = ".$mcmTotal." / ".$n ?> </p>
         <p> <?php echo "DM ="?> <span class="var"> <?php echo $desvMedia ?> </span> </p>
     </div>
     <div class="contenedor-media-res">
         <h3 class="subtitulo">Varianza (σ²)</h3>
-        <p> <?php echo "σ² = Σ(F(MC - Media)²) / N" ?> </p>
+        <p> <?php echo "σ² = Σ(f(X - X̅)²) / N" ?> </p>
         <p> <?php echo "σ² = ".$mcm2Total." / ".$n ?> </p>
         <p> <?php echo "σ² ="?> <span class="var"> <?php echo $varianza ?> </span> </p>
     </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="contenedor-media-res">
         <h3 class="subtitulo">Coeficiente de Variaci&oacute;n (CV)</h3>
-        <p> <?php echo "CV = σ / Media" ?> </p>
+        <p> <?php echo "CV = σ / X̅" ?> </p>
         <p> <?php echo "CV = ".$desvEstandar." / ".$media ?> </p>
         <p> <?php echo "CV ="?> <span class="var"> <?php echo $cv ?> </span> </p>
     </div>

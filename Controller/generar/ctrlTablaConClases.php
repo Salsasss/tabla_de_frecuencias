@@ -51,7 +51,7 @@ if(
     $lsa = "";
     $filas = array();
     for($i = 0; $i < $nc; $i++){        
-        $fila = new Fila($n, $clases[$i][0], $clases[$i][1],[], $frecuencias[$i], $lia, $lsa, $diferencia);
+        $fila = new Fila($n, $clases[$i][0], $clases[$i][1],[], $frecuencias[$i], $lia, $lsa, $diferencia, true);
         $lia = $fila->li;
         $lsa = $fila->ls;
         $filas[] = $fila;
@@ -61,7 +61,7 @@ if(
     $filas[0]->fa = $filas[0]->f; //fa = 3
     $filas[0]->fc = $n - $filas[0]->f; //fa = 3
     for($i = 1; $i < $nc; $i++){
-        $filas[$i]->fa = $filas[$i]->sumarFrecuencias($filas[$i-1]->fa);
+        $filas[$i]->fa = $filas[$i]->f + $filas[$i-1]->fa;
         $filas[$i]->fc = $filas[$i]->restarFrecuencias($filas[$i-1]->fc);
     }
 
@@ -79,7 +79,7 @@ if(
         $fila->frc = soloDosDecimales($fila->fc / $fila->n);
         $fila->frcp = $fila->frc * 100;
 
-        $fila->mcm = soloDosDecimales($fila->f*(abs($fila->mc - $media)));
+        $fila->mcm = soloDosDecimales(pow(($fila->mc - $media),2));
         $fila->mcm2 = soloDosDecimales($fila->f*pow($fila->mc - $media,2));
     }
 

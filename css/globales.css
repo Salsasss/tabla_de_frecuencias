@@ -35,3 +35,11 @@ input {
 .pantalla-principal {
     height: 100%;
 }
+
+.contenedor-flex{
+    display: flex;
+}
+
+.margin-right{
+    margin-right: 1.5rem;
+}

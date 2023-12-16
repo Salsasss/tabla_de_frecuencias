@@ -3,7 +3,7 @@
     const respuestaRaw = await fetch("./Controller/generar/ctrlDatosGrafica.php");
     const respuesta = await respuestaRaw.json();
 
-    const colores = ['rgba(255, 0, 0,0.5)', 'rgba(255, 153, 51, 0.7)', 'rgba(51, 153, 102, 0.7)', 'rgba(51, 51, 255, 0.7)', ];
+    const colores = ['rgba(255, 0, 0,0.5)', 'rgba(255, 153, 51, 0.7)', 'rgba(51, 153, 102, 0.7)', 'rgba(51, 51, 255, 0.7)', 'rgba(230, 51, 255, 0.7)',  'rgba(70, 255, 51, 0.7)', 'rgba(51, 66, 255, 0.7)', 'rgba(227, 255, 51, 0.7)', 'rgba(51, 255, 233, 0.7)',  'rgba(12, 25, 23, 0.7)',  'rgba(11, 155, 33, 0.7)',  'rgba(78, 155,200, 0.7)',];
 
     //Las etiquetas
     const etiquetasBarras = respuesta.etiquetasBarras;
@@ -19,7 +19,7 @@
         borderWidth: 2
     }
 
-    //Los datos para la Ojiva
+    //Los datos para las lineas
     const datosBarras2 = {
         type: 'line',
         label: "MC",
@@ -27,6 +27,15 @@
         borderColor: 'rgba(255,0,0)',
         borderWidth: 3
     }
+
+    //Los datos para ja Ojiva
+    const datosOjiva = {
+        type: 'line',
+        label: "Ojiva",
+        data: respuesta.datosBarras2,
+        borderColor: 'rgba(255,0,0)',
+        borderWidth: 3
+      };
 
     const datosPastel = {
         type: 'pie',
@@ -41,7 +50,7 @@
         data: {
             labels: etiquetasBarras,
             datasets: [
-                datosBarras2, datosBarras1
+                datosBarras2, datosBarras1, datosOjiva
             ]
         },
         options: {

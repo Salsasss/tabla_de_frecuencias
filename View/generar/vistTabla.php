@@ -18,23 +18,23 @@ if(isset($_GET['generar']) && !empty($_GET['generar'])){
     ?>
     <table class="tabla">
         <tr class="titulos">
-            <th>I</th>
-            <th>F</th>
-            <th class="fa">Fa</th>
-            <th class="fra">Fra</th>
-            <th class="frap">Fra(%)</th>
+            <th>Datos</th>
+            <th class="mc">Marca de Clase(X)</th>
+            <th>Frecuencia (f)</th>
+            <th class="fmc">fX</th>
+            <th class="fa">F. Acumulada (F) </th>
+            <th class="fra">fra</th>
             <th class="lri">LRI</th>
             <th class="lrs">LRS</th>
-            <th class="fr">Fr</th>
-            <th class="frp">Fr(%)</th>
-            <th class="fc">Fc</th>
-            <th class="frc">Frc</th>
-            <th class="frcp">Frc(%)</th>
-            <th class="mc">MC</th>
+            <th class="fr">F. Relativa (fri)</th>
+            <th class="frp">F. Relativa % (fri%)</th>
+            <th class="frap">F. Relativa Acumulada (Fra%)</th>
+            <th class="fc">fc</th>
+            <th class="frc">frc</th>
+            <th class="frcp">frc(%)</th>
             <th class="grd">Grados°</th>
-            <th class="fmc">FMC</th>
-            <th class="mcm">F|MC-Mediana|</th>
-            <th class="mcm2">F(MC-Mediana)²</th>
+            <th class="mcm">(X-X̅)²</th>
+            <th class="mcm2">f(X-X̅)²</th>
         </tr>
         <?php 
             $fTotal = 0;
@@ -48,11 +48,12 @@ if(isset($_GET['generar']) && !empty($_GET['generar'])){
                 foreach($filas as $fila){
                     ?>
                     <tr class="fila">
-                        <td> <span class="var"> <?php echo $fila->li." - ".$fila->ls?> </span> </td>
+                        <td> <span class="var"> [<?php echo $fila->li." - ".$fila->ls; if(!$fila->incluye){echo')'; }else{ echo']'; } ?>  </span> </td>
+                        <td class="mc">   <span class="opera"> <?php echo '('.$fila->li.' + '.$fila->ls.')/2 = '        ?> </span> <?php echo $fila->mc   ?>  </td>
                         <td> <?php echo $fila->f ?> </td>
-                        <td class="fa">                        <?php echo $fila->fa                                                                   ?>      </td>
+                        <td class="fmc">  <span class="opera"> <?php echo $fila->f.' * '.$fila->mc.' = '                ?> </span> <?php echo $fila->fmc  ?>  </td>
+                        <td class="fa">                                                                                            <?php echo $fila->fa   ?>  </td>
                         <td class="fra">  <span class="opera"> <?php echo $fila->fa.' / '.$fila->n.' = '                ?> </span> <?php echo $fila->fra  ?>  </td>
-                        <td class="frap"> <span class="opera"> <?php echo $fila->fra.' * 100 = '                        ?> </span> <?php echo $fila->frap ?>% </td>
                         <td class="lri">  <span class="opera"> <?php echo $fila->li.' - ('.($diferencia/2).') = '       ?> </span> <?php echo $fila->lri  ?>  </td>
                         <td class="lrs">  <span class="opera"> <?php echo $fila->ls.' + ('.($diferencia/2).') = '       ?> </span> <?php echo $fila->lrs  ?>  </td>
                         <td class="fr">   <span class="opera"> <?php echo $fila->f.' / '.$fila->n.' = '                 ?> </span> <?php echo $fila->fr   ?>  </td>
@@ -60,11 +61,10 @@ if(isset($_GET['generar']) && !empty($_GET['generar'])){
                         <td class="fc">   <span class="opera"> <?php echo $n.' - '.$fila->fa.' = '                      ?> </span> <?php echo $fila->fc   ?>  </td>
                         <td class="frc">  <span class="opera"> <?php echo $fila->fc.' / '.$fila->n.' = '                ?> </span> <?php echo $fila->frc  ?>  </td>
                         <td class="frcp"> <span class="opera"> <?php echo $fila->frc.' * 100 = '                        ?> </span> <?php echo $fila->frcp ?>% </td>
-                        <td class="mc">   <span class="opera"> <?php echo '('.$fila->li.' + '.$fila->ls.')/2 = '        ?> </span> <?php echo $fila->mc   ?>  </td>
+                        <td class="frap"> <span class="opera"> <?php echo $fila->fra.' * 100 = '                        ?> </span> <?php echo $fila->frap ?>% </td>
                         <td class="grd">  <span class="opera"> <?php echo '('.$fila->f.' * 360) / '.$fila->n.' = '      ?> </span> <?php echo $fila->grd  ?>° </td>
-                        <td class="fmc">  <span class="opera"> <?php echo $fila->f.' * '.$fila->mc.' = '                ?> </span> <?php echo $fila->fmc  ?>  </td>
                         <td class="mcm">  <span class="opera"> <?php echo $fila->f.' * |'.$fila->mc.' - '.$media.' = <span class="opera-sub">'.soloDosDecimales(abs($fila->mc-$media)).'</span>|         = ' ?> </span> <?php echo $fila->mcm  ?>  </td>
-                        <td class="mcm2"> <span class="opera"> <?php echo $fila->f.' * ('.$fila->mc.' - '.$media.' = <span class="opera-sub">'.soloDosDecimales(pow($fila->mc-$media,2)).'</span>)² = ' ?> </span> <?php echo $fila->mcm2 ?>  </td>
+                        <td class="mcm2"> <span class="opera"> <?php echo $fila->f.' * ('.$fila->mc.' - '.$media.' = <span class="opera-sub">'.soloDosDecimales($fila->mc-$media).'</span>)² = ' ?> </span> <?php echo $fila->mcm2 ?>  </td>
                     </tr>
                     <?php
                     $fTotal += $fila->f;
@@ -78,20 +78,20 @@ if(isset($_GET['generar']) && !empty($_GET['generar'])){
                 ?>
                 <tr class="fila total">
                     <td> <span class="var">Total</span> </td>
+                    <td class="mc"> - </td>
                     <td> <?php echo $fTotal ?> </td>
+                    <td class="fmc"> <?php echo $fmcTotal ?> </td>
                     <td class="fa"> - </td>
                     <td class="fra"> - </td>
-                    <td class="frap"> - </td>
                     <td class="lri"> - </td>
                     <td class="lrs"> - </td>
                     <td class="fr"> <?php echo $frTotal ?> </td>
                     <td class="frp"> <?php echo $frpTotal ?>% </td>
+                    <td class="frap"> - </td>
                     <td class="fc"> - </td>
                     <td class="frc"> - </td>
                     <td class="frcp"> - </td>
-                    <td class="mc"> - </td>
                     <td class="grd"> <?php echo $grdTotal ?>° </td>
-                    <td class="fmc"> <?php echo $fmcTotal ?> </td>
                     <td class="mcm"> <?php echo $mcmTotal ?> </td>
                     <td class="mcm2"> <?php echo $mcm2Total ?> </td>
                 </tr>

@@ -68,7 +68,7 @@ if(
                 $qn = soloDosDecimales($filaQuantil->lri + (($pos - $filaQuantilAntes->fa)/$filaQuantil->f) * $ti);
                 ?>
                     <div class="cont-datos">
-                        <p class="res-quantil"> <?php echo $nombres[$i].$posicion." = LRI + ((K(N/".$quantiles[$i].") - Fa₋₁) / f)(Ti)" ?> </p>
+                        <p class="res-quantil"> <?php echo $nombres[$i].$posicion." = LRI + ((K(N/".$quantiles[$i].") - F₋₁) / f)(Ti)" ?> </p>
                         <p class="res-quantil"> <?php echo $nombres[$i].$posicion." = ".$filaQuantil->lri." + ((".$pos." - ".$filaQuantilAntes->fa.") / $filaQuantil->f)(".$ti.")" ?> </p>
                         <p class="res-quantil"> <?php echo $nombres[$i].$posicion." = " ?> <span class="var"> <?php echo $qn ?> </span> </p>
                     </div>

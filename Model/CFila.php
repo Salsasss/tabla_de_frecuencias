@@ -1,6 +1,7 @@
 <?php
 class Fila{
     public $datos = array();
+    public $incluye;
     public $n = 0;
     public $li  = 0;
     public $ls  = 0;
@@ -21,7 +22,8 @@ class Fila{
     public $mcm = 0;
     public $mcm2 = 0;
     
-    function __construct($n, $li, $ls, $datos, $f = 0, $lsa="", $lria="", $diferencia=1){
+    function __construct($n, $li, $ls, $datos, $f = 0, $lsa="", $lria="", $diferencia=1, $incluye){
+        $this->incluye = $incluye;
         $this->n = $n;
         $this->li = $li;
         $this->ls = $ls;
@@ -42,18 +44,22 @@ class Fila{
 
     private function contarFrecuencia(){
         $f = 0;
-        foreach($this->datos as $dato){
-            if($dato > $this->ls){
-                return $f;
-            }else if($dato >= $this->li){
-                $f++;
-            }
+        foreach($this->datos as $dato){ //Reformar este codigo culero
+            if($this->incluye){
+                if($dato > $this->ls){ //Se sale cuando dato>ls]
+                    return $f;
+                }else if($dato >= $this->li){
+                    $f++;
+                }    
+            }else{
+                if($dato >= $this->ls){ //Se sale cuando dato==ls)
+                    return $f;
+                }else if($dato >= $this->li){
+                    $f++;
+                }
+            }        
         }
         return $f;
-    }
-
-    public function sumarFrecuencias($fa){
-        return $fa+$this->f;
     }
 
     public function restarFrecuencias($fc){

@@ -3,7 +3,7 @@
 $media = soloDosDecimales($fmcTotal / $n);
 
 //MEDIANA
-if(isset($_GET['g']) && !empty($_GET['g']) && ($_GET['g']==1 || $_GET['g']==3)){
+if(isset($_GET['g']) && !empty($_GET['g']) && ($_GET['g']==1 || $_GET['g']==3) && (!isset($_POST['intervalos']) && empty($_POST['intervalos']))){
     //Con datos NO agrupados
     if($n%2==0){
         //n par
@@ -31,10 +31,10 @@ if(isset($_GET['g']) && !empty($_GET['g']) && ($_GET['g']==1 || $_GET['g']==3)){
         }
     }
     $ti = ($filaMediana->ls - $filaMediana->li) + $diferencia;
-    $mediana = soloDosDecimales($filaMediana->lri + ((($n/2) - $filaMedianaAntes->fa)/$filaMediana->f) * $ti);
+    $mediana = soloDosDecimales($filaMediana->li + ((($n/2) - $filaMedianaAntes->fa)/$filaMediana->f) * $a);
 }
 //MODA
-if(isset($_GET['g']) && !empty($_GET['g']) && ($_GET['g']==1 || $_GET['g']==3)){
+if((isset($_GET['g']) && !empty($_GET['g']) && ($_GET['g']==1 || $_GET['g']==3)) && (!isset($_POST['intervalos']) && empty($_POST['intervalos']))){
     //Con datos NO agrupados
     $datos = (explode(' ',trim($_SESSION['datos'])));
 
@@ -82,6 +82,6 @@ if(isset($_GET['g']) && !empty($_GET['g']) && ($_GET['g']==1 || $_GET['g']==3)){
     $d1 = $filaModa->f - $fAntes;
     $d2 = $filaModa->f - $fDespues;
     
-    $moda = soloDosDecimales($filaModa->lri + ($d1/($d1 + $d2)) * $ti);
+    $moda = soloDosDecimales($filaModa->li + ($d1/($d1 + $d2)) * $a);
 }
 ?>

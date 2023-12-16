@@ -1,36 +1,4 @@
 <?php
-function ordenarDatos(&$datos, $bottom, $top){
-    if(count($datos) < 2){
-        return;
-    }
-    $pivote = $datos[($bottom + $top) / 2]; //Obtener el elemento de en medio    
-    $down = $bottom;
-    $up = $top;
-
-    while($down <= $up){
-        while($datos[$down] < $pivote){
-            $down++;
-        }
-        while($datos[$up] > $pivote){
-            $up--;
-        }
-        if($down <= $up){
-            $aux = $datos[$down];
-            $datos[$down] = $datos[$up];
-            $datos[$up] = $aux;
-
-            $down++;
-            $up--;
-        }
-
-        if($bottom < $up){
-            ordenarDatos($datos, $bottom, $up);
-        }
-        if($down < $top){
-            ordenarDatos($datos, $down, $top);
-        }
-    }
-}
 function debug($valor){
     echo "<pre>";
     var_dump($valor);
@@ -52,5 +20,17 @@ function soloDosDecimales($numero){
     $nuevoNumero = floatval(substr($numeroString,0,$nuevoLen+$numeroDecimales));//+4 es el numero de decimales
 
     return $nuevoNumero;
+}
+
+function redondearImparMasCercano($numero){
+    $redondeado = round($numero);
+    if ($redondeado%2==0) {
+        if ($numero-$redondeado < 0){
+            $redondeado--;
+        }else{
+            $redondeado++;
+        }
+    }
+    return $redondeado;
 }
 ?>

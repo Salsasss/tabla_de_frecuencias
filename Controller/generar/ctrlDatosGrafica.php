@@ -1,3 +1,4 @@
+
 <?php
 require('../../Model/CFila.php');
 
@@ -11,18 +12,23 @@ $datosBarras = [];
 $etiquetasPastel = [];
 $datosPastel = [];
 
-$i = 1;
 foreach($filas as $fila){
-    $etiquetasBarras[] = strval($fila->lri." - ".$fila->lrs);
+    $etiquetasBarras[] = strval($fila->li." - ".$fila->ls);
     $datosBarras[] = $fila->f;
-    $etiquetasPastel[] = strval($fila->grd."°");
+    $datosBarras2[] = $fila->frap;
+    
+    if($fila->li == $fila->ls){
+        $etiquetasPastel[] = strval($fila->li);
+    }else{
+        $etiquetasPastel[] = strval($fila->li." - ".$fila->ls);
+    }
     $datosPastel[] = $fila->grd;
-    $i++;
 }
 
 $respuesta = [
     'etiquetasBarras' => $etiquetasBarras,
     'datosBarras' => $datosBarras,
+    'datosBarras2' => $datosBarras2,
     'etiquetasPastel' => $etiquetasPastel,
     'datosPastel' => $datosPastel,
 ];

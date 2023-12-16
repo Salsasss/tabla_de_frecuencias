@@ -26,7 +26,7 @@ require('Model/CFila.php');
     <header class="header">
         <div class="header-cont">
             <a class="logo" href="index.php">
-                <h1 class="titulo">VinayBot-3000</h1>
+                <h1 class="titulo">Generador de Tablas de Frecuencias</h1>
             </a>
             <?php
                 ?>
@@ -61,14 +61,12 @@ require('Model/CFila.php');
     </div>
 
     <div class="contenedor">
-        <?php
-            include('Controller/ctrlPrincipal.php');
-        ?>
+        <?php include('Controller/ctrlPrincipal.php'); ?>
     </div>
 
     <footer class="footer <?php if(!isset($_GET['generar']) && empty($_GET['generar'])){ echo "fixed"; } ?> "> 
         <div class="contenedor">
-            <p class="copy">Aar&oacute;n SA de CV <?php echo $anio = Date('Y'); ?> &copy;</p>
+            <p class="copy">Aar&oacute;n Salas Ch&aacute;vez <?php echo $anio = Date('Y'); ?> &copy;</p>
         </div>
     </footer>
 </body>
